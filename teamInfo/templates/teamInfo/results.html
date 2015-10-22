@@ -1,0 +1,9 @@
+<h1>{{ voice.dayily_voice }}</h1>
+
+<ul>
+{% for choice in voice.choice_set.all %}
+    <li>{{ choice.choice_reason }} == {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'teamInfo:detail' voice.id %}">Support more?</a>

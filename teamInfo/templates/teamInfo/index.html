@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'teamInfo/style.css' %}" />
+
+{% if latest_voice_list %}
+    <ul>
+    {% for voice in latest_voice_list %}
+        <li><a href="{% url 'teamInfo:detail' voice.id %}">{{ voice.dayily_voice }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No teamer's information are available.</p>
+{% endif %}
